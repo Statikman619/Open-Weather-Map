@@ -151,6 +151,7 @@ function storeCityData(city) {
     localStorage.setItem("cities", JSON.stringify(storage));
   }
 
+  $("#history").empty();
   storage.forEach(function (city) {
     let searchHistoryBtn = document.createElement("button");
     searchHistoryBtn.className = "search-history";
