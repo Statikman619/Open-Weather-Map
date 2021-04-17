@@ -3,6 +3,14 @@ let apiKey = "f01a2b3157f4e50226ee045efd1eeca5";
 let searchBtn = document.getElementById("search-button");
 searchBtn.addEventListener("click", handleSearch);
 
+let history = document.getElementById("history");
+history.addEventListener("click", handleHistory);
+
+function handleHistory(e) {
+  console.log(e.target.getAttribute("data-city"));
+  getWeatherData(e.target.getAttribute("data-city"));
+}
+
 function weatherData(lat, lon, city) {
   console.log("click");
 
@@ -19,10 +27,6 @@ function weatherData(lat, lon, city) {
     })
     .then(function (data) {
       console.log(data);
-
-      let storage = JSON.parse(localStorage.getItem("cities")) || [];
-      storage.push(city);
-      localStorage.setItem("cities", JSON.stringify(storage));
 
       let cityName = document.createElement("h3");
       cityName.classList.add("inline");
@@ -57,9 +61,6 @@ function weatherData(lat, lon, city) {
 
       $("#futureHumidity4").text(data.daily[4].humidity + "%");
       $("#futureTemp4").text(data.daily[4].temp.day);
-
-      let test = document.createElement("li");
-      test.className = "search-history";
 
       $("#futureDate0").text(
         new Date(data.daily[0].dt * 1000).toLocaleDateString()
@@ -111,9 +112,6 @@ function weatherData(lat, lon, city) {
           data.daily[4].weather[0].icon +
           ".png"
       );
-
-      test.innerHTML = city;
-      $("#history").append(test);
     });
 }
 
@@ -130,6 +128,11 @@ function pickWeather(weather) {
 
 function handleSearch() {
   const city = $("#search-city").val();
+  getWeatherData(city);
+  storeCityData(city);
+}
+
+function getWeatherData(city) {
   $.ajax({
     url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=f01a2b3157f4e50226ee045efd1eeca5`,
     method: "GET",
@@ -140,3 +143,23 @@ function handleSearch() {
     weatherData(lat, lon, city);
   });
 }
+
+function storeCityData(city) {
+  let storage = JSON.parse(localStorage.getItem("cities")) || [];
+  if (city) {
+    storage.push(city);
+    localStorage.setItem("cities", JSON.stringify(storage));
+  }
+
+  storage.forEach(function (city) {
+    let searchHistoryBtn = document.createElement("button");
+    searchHistoryBtn.className = "search-history";
+    searchHistoryBtn.setAttribute("data-city", city);
+    searchHistoryBtn.innerHTML = city;
+    $("#history").append(searchHistoryBtn);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  storeCityData();
+});
