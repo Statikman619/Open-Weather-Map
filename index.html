@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Weather Map</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b5a0cefca1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="jumbotron container-fluid mt-2 text-center p-2 bg-dark text-white" >
+    <h1> <strong>Weather Dashboard</strong></h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 bg-light">
+            <h4 class="pt-1"><strong>Search for a City:</strong></h4>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="search" id="search-city" aria-label="City Search" aria-describedby="search-button">
+                <div class="input-group-append">
+                    <button class=" btn bg-primary text-dark" id="search-button"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <ul class="list-group" id="history">
+            </ul>
+            <button class=" btn btn-primary" type="button" id="clear-history">Clear History</button>
+        </div>   
+        <div class="col-sm-9">
+            <div class="row ml-2 border border-dark rounded">
+                <div class="col-sm-12" id="current-weather">
+                    <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                    <div id="weather-icon"></div>
+                    <p>Temperature:<span class="current" id="temperature"></span></p>
+                    <p>Humidity:<span class="current" id="humidity"></span></p> 
+                    <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                    <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p> 
+                </div>
+            </div>
+            <div id ="future-weather">
+              <h3>5-Day Forecast:</h3>
+              <div class="row text-light">
+                  <div class="col-sm-2 bg-primary  text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                      <p id="futureDate0"></p>
+                      <img id="futureImg0"></img>
+                      <p>Temp:<span id="futureTemp0"></span></p>
+                      <p>Humidity:<span id="futureHumidity0"></span></p>
+                  </div>
+                  <div class="col-sm-2 bg-primary  text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                    <p id="futureDate1"></p>
+                    <img id="futureImg1"></img>
+                    <p>Temp:<span id="futureTemp1"></span></p>
+                    <p>Humidity:<span id="futureHumidity1"></span></p>
+                </div>
+                <div class="col-sm-2 bg-primary  text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                    <p id="futureDate2"></p>
+                    <img id="futureImg2"></img>
+                    <p>Temp:<span id="futureTemp2"></span></p>
+                    <p>Humidity:<span id="futureHumidity2"></span></p>
+                </div>
+                <div class="col-sm-2 bg-primary  text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                    <p id="futureDate3"></p>
+                    <img id="futureImg3"></img>
+                    <p>Temp:<span id="futureTemp3"></span></p>
+                    <p>Humidity:<span id="futureHumidity3"></span></p>
+                </div>
+                <div class="col-sm-2 bg-primary  text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                    <p id="futureDate4"></p>
+                    <img id="futureImg4"></img>
+                    <p>Temp:<span id="futureTemp4"></span></p>
+                    <p>Humidity:<span id="futureHumidity4"></span></p>
+                </div>
+                  
+                  
+                  
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./assets/JS/script.js"></script>
+</body>
+
+</html>
