@@ -1,5 +1,8 @@
 # Open Weather Map
 
+GitHubLink https://github.com/Statikman619/Open-Weather-Map/tree/master
+LiveLink https://github.com/Statikman619/Open-Weather-Map/tree/master
+
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ## Table of Contents
 * [Title](#Title)
